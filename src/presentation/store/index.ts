@@ -1,3 +1,6 @@
-import reduxStore from './redux/store';
+import {
+  store as reduxStore,
+  persistor as reduxPersistor,
+} from './redux/store';
 
-export { reduxStore };
+export { reduxStore, reduxPersistor };
