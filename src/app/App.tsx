@@ -1,9 +1,9 @@
 import { Provider as ReduxProvider } from 'react-redux';
 
-import { GlobalStyles } from '../presentation/styles';
-import { Routes } from './routes/routes';
+import { reduxStore } from '@store';
+import { GlobalStyles } from '@styles';
 
-import { reduxStore } from '../presentation/store';
+import { Routes } from './routes/routes';
 
 const App = () => {
   return (
