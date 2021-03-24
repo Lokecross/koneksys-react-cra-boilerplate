@@ -2,6 +2,8 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
+import { ThemeProvider } from '@hooks';
+
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { reduxStore, reduxPersistor } from '@store';
@@ -16,8 +18,10 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ReduxProvider store={reduxStore}>
         <PersistGate persistor={reduxPersistor}>
-          <GlobalStyles />
-          <Routes />
+          <ThemeProvider>
+            <GlobalStyles />
+            <Routes />
+          </ThemeProvider>
         </PersistGate>
       </ReduxProvider>
     </QueryClientProvider>
