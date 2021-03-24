@@ -9,7 +9,9 @@ import { getUser } from '@services/queries/users';
 
 import { useTheme } from '@hooks';
 
-import { Container } from './Home.styles';
+import { Button } from '@components';
+
+import { Container, Label } from './Home.styles';
 
 const Home = () => {
   const { counter } = useAppSelector();
@@ -31,26 +33,21 @@ const Home = () => {
 
   return (
     <Container>
-      <div>redux: {counter.value}</div>
-      <button
-        type="button"
+      <Label>redux: {counter.value}</Label>
+      <Button
         onClick={() => {
           dispatch(increment());
         }}
       >
         increment redux
-      </button>
+      </Button>
 
-      <div>state: {state.get()} </div>
-      <button type="button" onClick={() => state.set(p => p + 1)}>
-        Increment
-      </button>
+      <Label style={{ marginTop: 10 }}>state: {state.get()} </Label>
+      <Button onClick={() => state.set(p => p + 1)}>Increment</Button>
 
-      <div>{`theme: ${theme.title}`}</div>
+      <Label style={{ marginTop: 10 }}>{`theme: ${theme.title}`}</Label>
 
-      <button type="button" onClick={toggleTheme}>
-        toggle theme
-      </button>
+      <Button onClick={toggleTheme}>toggle theme</Button>
     </Container>
   );
 };

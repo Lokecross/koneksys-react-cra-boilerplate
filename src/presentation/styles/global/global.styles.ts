@@ -11,7 +11,8 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     font-style: normal;
     transition: all 0.1s linear;
   }
