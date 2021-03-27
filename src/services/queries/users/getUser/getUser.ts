@@ -1,11 +1,14 @@
 import { api } from '@services';
 
-const getUser = async (username: string) => {
-  const { data: user } = await api.get(`/users/${username}`);
+import User, { IUserApiModel, IUser } from '@models/User.model';
 
+const getUser = async (username: string): Promise<IUser> => {
+  const { data: user } = await api.get<IUserApiModel>(`/users/${username}`);
+
+  // delay to test shimmer effect
   await new Promise(resolve => setTimeout(resolve, 2000));
 
-  return user;
+  return User.fromApiModel(user);
 };
 
 export { getUser };

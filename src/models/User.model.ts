@@ -1,36 +1,28 @@
 export interface IUser {
-  name: string;
-  expiration: Date;
+  reposAmount: number;
+  createdAt: Date;
 }
 
 export interface IUserApiModel {
-  name: string;
-  expirationTokenTime: string;
+  public_repos: number;
+  created_at: string;
 }
 
 export default class User implements IUser {
-  public readonly name: string;
+  public readonly reposAmount: number;
 
-  public readonly expiration: Date;
+  public readonly createdAt: Date;
 
-  constructor(name: string, expiration: Date) {
-    this.name = name;
-    this.expiration = expiration;
-  }
-
-  public isAuth(): boolean {
-    const today = new Date();
-
-    return this.expiration < today;
+  constructor(reposAmount: number, createdAt: Date) {
+    this.reposAmount = reposAmount;
+    this.createdAt = createdAt;
   }
 
   static fromApiModel(apiModel: IUserApiModel) {
-    const expirationTokenTime = new Date(
-      Date.parse(apiModel.expirationTokenTime),
-    );
+    const { created_at, public_repos } = apiModel;
 
-    const { name } = apiModel;
+    const createdAt = new Date(Date.parse(created_at));
 
-    return new User(name, expirationTokenTime);
+    return new User(public_repos, createdAt);
   }
 }
