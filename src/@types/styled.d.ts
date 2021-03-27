@@ -6,10 +6,20 @@ declare module 'styled-components' {
 
     background: {
       primary: string;
+      secondary: string;
     };
 
     color: {
       primary: string;
+    };
+
+    shimmer: {
+      primary: string;
+      secondary: string;
+    };
+
+    border: {
+      secondary: string;
     };
   }
 }

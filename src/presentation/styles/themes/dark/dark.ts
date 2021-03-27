@@ -2,11 +2,21 @@ const dark = {
   title: 'dark',
 
   background: {
-    primary: '#121212',
+    primary: '#090c10',
+    secondary: '#0d1117',
   },
 
   color: {
-    primary: '#fff',
+    primary: '#c9d1d9',
+  },
+
+  shimmer: {
+    primary: '#090c10',
+    secondary: '#030506',
+  },
+
+  border: {
+    secondary: '#30363d',
   },
 };
 

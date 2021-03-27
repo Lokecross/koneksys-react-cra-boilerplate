@@ -3,7 +3,14 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root {
     --theme-background-primary: ${({ theme }) => theme.background.primary};
+    --theme-background-secondary: ${({ theme }) => theme.background.secondary};
+
     --theme-color-primary: ${({ theme }) => theme.color.primary};
+
+    --theme-shimmer-primary: ${({ theme }) => theme.shimmer.primary};
+    --theme-shimmer-secondary: ${({ theme }) => theme.shimmer.secondary};
+
+    --theme-border-secondary: ${({ theme }) => theme.border.secondary};
   }
 
   * {

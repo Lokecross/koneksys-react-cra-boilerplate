@@ -2,11 +2,21 @@ const light = {
   title: 'light',
 
   background: {
-    primary: '#fff',
+    primary: '#f6f8fa',
+    secondary: '#fff',
   },
 
   color: {
-    primary: '#121212',
+    primary: '#24292e',
+  },
+
+  shimmer: {
+    primary: '#f8f8f8',
+    secondary: '#e7edf1',
+  },
+
+  border: {
+    secondary: '#e1e4e8',
   },
 };
 
