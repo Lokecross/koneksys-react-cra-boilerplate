@@ -2,30 +2,40 @@ import { useQuery } from 'react-query';
 
 import { format } from 'date-fns';
 
+import { useParams } from 'react-router-dom';
+
 import { getUser } from '@services/queries/users';
 
-import { Shimmer } from '@components';
+import { useToast } from '@hooks';
+
+import { UserLoading } from './loading/User.loading';
+import { UserError } from './error/User.error';
 
 import { Container, Text } from './User.styles';
 
 const User = () => {
-  const { isLoading, isError, data } = useQuery('users', () =>
-    getUser('lokecross'),
+  const params = useParams<{ id: string }>();
+
+  const { toast } = useToast();
+
+  const { isLoading, isError, data } = useQuery(
+    'users',
+    () => {
+      return getUser(params.id);
+    },
+    {
+      onError: () => {
+        toast.error('Failed to found user');
+      },
+    },
   );
 
   if (isLoading) {
-    return (
-      <Container>
-        <Shimmer style={{ height: 20, width: 140, borderRadius: 4 }} />
-        <Shimmer
-          style={{ marginTop: 5, height: 20, width: 200, borderRadius: 4 }}
-        />
-      </Container>
-    );
+    return <UserLoading />;
   }
 
   if (isError || !data) {
-    return <Container>error</Container>;
+    return <UserError />;
   }
 
   return (

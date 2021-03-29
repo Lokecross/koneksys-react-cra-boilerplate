@@ -2,7 +2,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { ThemeProvider } from '@hooks';
+import { ThemeProvider, ToastProvider } from '@hooks';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -21,6 +21,7 @@ const App = () => {
           <ThemeProvider>
             <GlobalStyles />
             <Routes />
+            <ToastProvider />
           </ThemeProvider>
         </PersistGate>
       </ReduxProvider>

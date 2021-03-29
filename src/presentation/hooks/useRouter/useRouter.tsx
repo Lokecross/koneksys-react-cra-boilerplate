@@ -20,10 +20,8 @@ function useRouter() {
       push: history.push,
       replace: history.replace,
       pathname: location.pathname,
-      query: {
-        ...queryString.parse(location.search),
-        ...params,
-      },
+      query: queryString.parse(location.search),
+      params,
       match,
       location,
       history,

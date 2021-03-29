@@ -3,7 +3,7 @@ import { useState } from '@hookstate/core';
 import { useAppDispatch, useAppSelector } from '@store/redux/store';
 import { increment } from '@store/redux/features/counter';
 
-import { useTheme } from '@hooks';
+import { useTheme, useToast } from '@hooks';
 
 import { Button } from '@components';
 
@@ -16,6 +16,7 @@ const Body = () => {
   const dispatch = useAppDispatch();
 
   const { toggleTheme, theme } = useTheme();
+  const { toast } = useToast();
 
   const state = useState(0);
 
@@ -45,6 +46,17 @@ const Body = () => {
 
       <Button style={{ borderTopLeftRadius: 0 }} onClick={toggleTheme}>
         toggle theme
+      </Button>
+
+      <Label>Toast</Label>
+
+      <Button
+        style={{ borderTopLeftRadius: 0 }}
+        onClick={() => {
+          toast.error('Oops! an error has ocurred.');
+        }}
+      >
+        toast
       </Button>
     </Container>
   );
