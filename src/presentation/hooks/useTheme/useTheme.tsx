@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 
-import { dark, light } from '@styles/themes';
+import { dark, light } from '@styles/colors/themes';
 
 import {
   ThemeProvider as StyledThemeProvider,

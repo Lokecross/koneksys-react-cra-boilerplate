@@ -1,16 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { varColors } from '@styles/colors';
+import { varFontsizes } from '@styles/fonts';
+
 const GlobalStyles = createGlobalStyle`
   :root {
-    --theme-background-primary: ${({ theme }) => theme.background.primary};
-    --theme-background-secondary: ${({ theme }) => theme.background.secondary};
-
-    --theme-color-primary: ${({ theme }) => theme.color.primary};
-
-    --theme-shimmer-primary: ${({ theme }) => theme.shimmer.primary};
-    --theme-shimmer-secondary: ${({ theme }) => theme.shimmer.secondary};
-
-    --theme-border-secondary: ${({ theme }) => theme.border.secondary};
+    ${varColors}
+    ${varFontsizes}
   }
 
   * {
@@ -21,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: var(--fontsize-md);
     transition: all 0.1s linear;
   }
 
